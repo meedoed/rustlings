@@ -32,7 +32,7 @@ fn main() {
     let mut joinhandles = Vec::new();
 
     for offset in 0..8 {
-        let child_numbers= Arc::new(shared_numbers.clone());
+        let child_numbers = shared_numbers.clone();
         joinhandles.push(thread::spawn(move || {
             let sum: u32 = child_numbers.iter().filter(|&&n| n % 8 == offset).sum();
             println!("Sum of offset {} is {}", offset, sum);
